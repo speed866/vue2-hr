@@ -31,8 +31,8 @@ export default {
   data() {
     return {
       loginForm: {
-        mobile: '18295250815',
-        password: '111111',
+        mobile: '13800000002',
+        password: 'hm#qd@23!',
         isAgree: false
       },
       loginRules: {
@@ -56,11 +56,12 @@ export default {
 
   methods: {
     login() {
-      this.$refs.form.validate((valid) => {
+      this.$refs.form.validate(async(valid) => {
         if (valid) {
-          this.$store.dispatch('user/login', this.loginForm)
+          await this.$store.dispatch('user/login', this.loginForm)
+          this.$router.push({ path: '/' })
           this.$message({
-            message: '校验通过',
+            message: '登录成功',
             type: 'success'
           })
         } else {
