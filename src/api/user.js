@@ -9,3 +9,8 @@ export function login(data) {
 export function getUserInfo() {
   return request('/sys/profile')
 }
+
+// 修改密码
+export function updatePassword(data) {
+  return request.put('/sys/user/updatePass', data)
+}
