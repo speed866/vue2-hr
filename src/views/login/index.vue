@@ -19,11 +19,13 @@
             <el-button type="primary" style="width: 350px" @click="login">登录</el-button>
           </el-form-item>
         </el-form>
+
       </el-card>
     </div>
   </div>
 </template>
 <script>
+
 export default {
   name: 'Login',
   data() {
@@ -55,6 +57,7 @@ export default {
     login() {
       this.$refs.form.validate((valid) => {
         if (valid) {
+          this.$store.dispatch('user/login', this.loginForm)
           this.$message({
             message: '校验通过',
             type: 'success'
