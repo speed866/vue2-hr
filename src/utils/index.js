@@ -128,7 +128,8 @@ export function listToTree(list, rootValue) {
   list.forEach(item => {
     if (item.pid === rootValue) {
       arr.push(item)
-      item.children = listToTree(list, item.id)
+      const children = listToTree(list, item.id)
+      if (children.length) item.children = children
     }
   })
 
